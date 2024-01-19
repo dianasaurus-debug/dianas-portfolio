@@ -1,0 +1,3 @@
+.logo-text {
+    @apply font-satisfy font-medium text-white italic text-4xl
+}

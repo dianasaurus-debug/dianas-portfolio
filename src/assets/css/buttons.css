@@ -1,0 +1,18 @@
+.btn-primary {
+    @apply bg-primary hover:bg-secondary hover:text-primary text-white font-bold py-2 px-4 rounded
+}
+.btn-menubar {
+    @apply text-white font-imfell hover:bg-secondary hover:text-black hover:rounded-md px-2 py-2 text-xl font-medium
+}
+.btn-menubar-mobile {
+    @apply text-white font-imfell hover:bg-secondary hover:text-black block hover:rounded-md px-2 py-2 text-base font-medium
+}
+.btn-switch-left {
+    @apply text-sm font-medium text-primary bg-white border border-primary rounded-s-lg hover:bg-primary hover:text-white focus:z-10 focus:bg-primary focus:ring-2 focus:ring-secondary focus:text-white
+}
+.btn-switch-right {
+    @apply text-sm font-medium text-primary bg-white border border-primary rounded-e-lg hover:bg-primary hover:text-white focus:z-10 focus:bg-primary focus:ring-2 focus:ring-secondary focus:text-white
+}
+.btn-switch-center {
+    @apply text-sm font-medium text-primary bg-white border-t border-b border-r border-primary hover:bg-primary hover:text-white focus:z-10 focus:bg-primary focus:ring-2 focus:ring-secondary focus:text-white
+}

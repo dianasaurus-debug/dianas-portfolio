@@ -1,0 +1,6 @@
+.label-secondary {
+    @apply inline-block bg-secondary rounded-full px-3 py-1 text-sm font-semibold text-black
+}
+.label-primary {
+    @apply inline-block bg-primary rounded-full px-3 py-1 text-sm font-semibold text-white
+}
