@@ -28,7 +28,7 @@ export default {
       {
         place : 'UISI',
         year : '2021 - 2022',
-        logo : '../assets/images/uisi.png',
+        logo : './assets/images/uisi.png',
         position : 'Web Developer - Full Time',
         period : '1 year',
         jobdesks : [
@@ -40,7 +40,7 @@ export default {
       {
         place : 'UISI',
         year : '2021 - 2022',
-        logo : '../assets/images/uisi.png',
+        logo : './assets/images/uisi.png',
         position : 'Web Developer - Full Time',
         period : '1 year',
         jobdesks : [
@@ -52,7 +52,7 @@ export default {
       {
         place : 'UISI',
         year : '2021 - 2022',
-        logo : '../assets/images/uisi.png',
+        logo : './assets/images/uisi.png',
         position : 'Web Developer - Full Time',
         period : '1 year',
         jobdesks : [
@@ -108,7 +108,7 @@ export default {
         </div>
         <div class="w-4/6 ">
           <div class="flex flex-row">
-            <img class="w-4/12" :src="getImageUrl('../assets/images/me.png')">
+            <img class="w-4/12" :src="getImageUrl('./assets/images/me.png')">
             <div class="text-3xl my-20">
               <div class="mb-10"><span class="font-imfell">I'm </span><span
                   class="font-satisfy font-bold text-4xl ml-2">Diana Fitri</span></div>
