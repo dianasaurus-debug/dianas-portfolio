@@ -1,29 +1,56 @@
 <script>
-import { ref } from 'vue'
+import { ref, defineExpose } from 'vue'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  DialogDescription,
+  TransitionRoot
+} from '@headlessui/vue'
 
 export default {
   name: 'index',
   components: {
     Navbar,
-    Footer
+    Footer,
+    Dialog,
+    DialogPanel,
+    DialogTitle,
+    DialogDescription,
+    TransitionRoot
   },
+
   setup() {
     const getImageUrl = (url) => {
       return new URL(url, import.meta.url).href
     }
+    let isProjectModalOpen = ref(false);
+    let currProject = ref(null);
+    function setIsOpen(project) {
+      currProject.value = project;
+      isProjectModalOpen.value = true
+    }
+    function closeModal(){
+      isProjectModalOpen.value = false
+
+    }
+
+
     const count = ref(0)
     const skills = ['HTML', 'CSS', 'PHP', 'Javascript', 'Dart', 'JQuery', 'Laravel', 'Express JS', 'Vue', 'Flutter', 'Tailwind', 'Bootstrap']
     const projects = ref([
       { title: 'Website SuperApp Migas', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
-      { title: 'Website SuperApp Migas', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
-      { title: 'Website SuperApp Migas', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
-      { title: 'Website SuperApp Migas', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
-      { title: 'Website SuperApp Migas', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
-      { title: 'Website SuperApp Migas', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
-      { title: 'Website SuperApp Migas', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
-      { title: 'Website SuperApp Migas', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+      { title: 'Ninuninu.id', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+      { title: 'PMB UISI', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+      { title: 'Presensi UISI', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+      { title: 'SFL UNAIR', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+      { title: 'Online Cash Waqf Management Information System', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+      { title: 'Short Interval Meeting System Website (SIM)', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+      { title: 'Otodeli.id', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+      { title: 'UISI Pay', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }] },
+
     ])
     const experiences = ref([
       {
@@ -71,7 +98,11 @@ export default {
       getImageUrl,
       skills,
       projects,
-      experiences
+      experiences,
+      currProject,
+      isProjectModalOpen,
+      setIsOpen,
+      closeModal
     }
   },
 
@@ -82,7 +113,7 @@ export default {
 </script>
 
 <template>
-  <div class="bg-base h-full">
+  <div class="h-full">
     <Navbar></Navbar>
     <header class="px-6 py-14 lg:px-8">
       <div class="flex flex-row justify-between">
@@ -130,6 +161,10 @@ export default {
     <!-- projects section -->
     <div class="px-40 py-14">
       <h1 class="font-imfell text-primary text-5xl text-center mb-10">Projects</h1>
+
+
+
+
       <div class="border-b border-secondary">
         <ul class="flex flex-wrap -mb-px text-lg font-medium text-center text-primary">
           <li class="me-2">
@@ -147,20 +182,59 @@ export default {
         </ul>
       </div>
       <div class="mt-10 mb-2 grid grid-cols-4 gap-4">
-        <div v-for="(project, index) in projects" class="font-imfell card mb-4 cursor-pointer">
+        <div v-for="(project, index) in projects" @click="setIsOpen(project)" class="font-imfell card mb-4 cursor-pointer">
           <img class="w-full" :src="project.img" alt="Sunset in the mountains">
-          <div class="px-4 py-2">
+          <div class="px-4 py-2 ">
             <div class="font-bold text-lg mb-2">{{ project.title }}</div>
             <p class="text-black text-sm">
               {{ project.desc }}
             </p>
           </div>
-          <div class="px-2 pt-3 pb-2">
+          <!-- <div class="px-2 pt-3 pb-2">
             <span class="label-secondary mr-2 mb-2" v-for="(tag, index) in project.tags">{{ tag.title }}</span>
 
-          </div>
+          </div> -->
         </div>
       </div>
+
+      <TransitionRoot appear :show="isProjectModalOpen" as="template">
+        <Dialog as="div" @close="closeModal" class="relative z-10">
+          <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
+            leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
+            <div class="fixed inset-0 bg-black/25" />
+          </TransitionChild>
+
+          <div class="fixed inset-0 overflow-y-auto font-imfell">
+            <div class="flex min-h-full items-center justify-center p-4 text-center">
+              <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
+                enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
+                leave-to="opacity-0 scale-95">
+                <DialogPanel
+                  class="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white p-6 border-2 border-primary text-left align-middle shadow-xl transition-all">
+                  <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
+                    {{ currProject.title }}
+                  </DialogTitle>
+                  <div class="mt-2">
+                    <p class="text-sm text-gray-500">
+                      Your payment has been successfully submitted. We’ve sent you
+                      an email with all of the details of your order.
+                    </p>
+                  </div>
+
+                  <div class="mt-4">
+                    <button type="button"
+                      class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      @click="closeModal">
+                      Got it, thanks!
+                    </button>
+                  </div>
+                </DialogPanel>
+              </TransitionChild>
+            </div>
+          </div>
+        </Dialog>
+      </TransitionRoot>
+
       <a href="#"
         class="float-right inline-flex items-center justify-center py-2 px-4 text-base font-medium text-white rounded-lg bg-primary hover:text-gray-900 hover:bg-secondary">
         <span class="w-full">Explore more projects</span>
@@ -310,15 +384,16 @@ export default {
             of type and scrambled it to make a type specimen book. </div>
           <div class="font-imfell text-lg text-white">It has survived not only five centuries, but also the leap into
             electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.</div>
-      </div>
-      <img class="w-1/3" :src="getImageUrl('../assets/images/taylor-guitar.png')" />
+            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+            including versions of Lorem Ipsum.</div>
+        </div>
+        <img class="w-1/3" :src="getImageUrl('../assets/images/taylor-guitar.png')" />
 
+      </div>
     </div>
+    <Footer></Footer>
   </div>
-  <Footer></Footer>
-</div></template>
+</template>
 
 <style scoped></style>

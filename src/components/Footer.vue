@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <footer class="mt-20">
+    <footer>
         <div class="w-full max-w-screen-xl mx-auto p-2 md:py-4">
             <div class="flex flex-row justify-between">
                 <span class="block text-xl sm:text-center font-satisfy text-primary">© 2024 Diana Fitri.</span>
