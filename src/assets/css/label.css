@@ -4,3 +4,6 @@
 .label-primary {
     @apply inline-block bg-primary rounded-full px-3 py-1 text-sm font-semibold text-white
 }
+.badge-primary {
+    @apply bg-secondary hover:bg-white hover:shadow-lg text-primary text-sm font-semibold px-2.5 py-1 rounded border border-primary text-center
+}
