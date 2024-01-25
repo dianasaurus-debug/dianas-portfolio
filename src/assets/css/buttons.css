@@ -4,6 +4,9 @@
 .btn-menubar {
     @apply text-white font-imfell hover:border-secondary hover:border-2 hover:text-secondary hover:rounded-md hover:text-lg px-2 py-2 text-xl font-medium
 }
+.btn-card {
+    @apply text-primary border-primary hover:bg-secondary font-imfell border-2 hover:border-black hover:text-black px-3 py-1 rounded-lg text-sm font-medium
+}
 .btn-menubar-mobile {
     @apply text-white font-imfell hover:bg-secondary hover:text-black block hover:rounded-md px-2 py-2 text-base font-medium
 }

@@ -1,3 +1,3 @@
 .card {
-    @apply max-w-xs rounded-xl overflow-hidden shadow-md border-2 border-primary hover:border-secondary hover:bg-white
+    @apply rounded-xl hover:bg-white  hover:p-2
 }

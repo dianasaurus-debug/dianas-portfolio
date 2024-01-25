@@ -265,7 +265,7 @@ export default {
             >
             <div class="me-2">
                 <div
-                  :class="{'inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg text-primary bg-secondary border-primary group' : selected, 'inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-primary hover:rounded-md hover:bg-secondary hover:border-primary group' : !selected}">
+                  :class="{'cursor-pointer inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg text-primary bg-secondary border-primary group' : selected, 'cursor-pointer inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-primary hover:rounded-md hover:bg-secondary hover:border-primary group' : !selected}">
                   <i :class="project_icons[category]"></i>{{ category }}
                 </div>
               </div>
@@ -280,15 +280,22 @@ export default {
           :key="idx"
           
         >
-        <div class="mt-10 mb-2 grid grid-cols-4 gap-4">
-        <div v-for="(project, index) in project_list" @click="setIsOpen(project)" class="font-imfell card mb-4 cursor-pointer">
-          <img class="w-full" :src="project.img" alt="Sunset in the mountains">
-            <div class="px-4 py-2 ">
-              <div class="font-bold text-lg mb-2">{{ project.title }}</div>
-              <p class="text-black text-sm">
+        <div class="mt-10 mb-2 grid grid-cols-2 gap-4">
+        <div v-for="(project, index) in project_list" @click="setIsOpen(project)" class="font-imfell flex flex-row justify-start mb-4">
+          <div class="w-1/2" >
+            <img class="border-4 border-primary w-full h-full" :src="project.img" alt="Sunset in the mountains">
+          </div>
+        
+          <div class="px-4 py-2 flex flex-col justify-center">
+              <div class="font-boldest text-xl text-primary">{{ project.title }}</div>
+              <p class="text-black my-2 text-sm">
                 {{ project.desc }}
               </p>
-            </div>
+              <div class="mt-2">
+                <button class="btn-card mr-2">Demo</button>
+                <button class="btn-card">More</button>
+              </div>
+          </div>
            
           </div>
         </div>
@@ -321,6 +328,13 @@ export default {
       <div class="md:flex">
         <ul
           class="flex-column space-y space-y-4 text-md font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
+          <li>
+            <a href="#"
+              class="shadow-md inline-flex items-center px-4 py-3 text-primary rounded-lg w-full border-2 border-primary hover:bg-secondary"
+              aria-current="page">
+              Education
+            </a>
+          </li>
           <li>
             <a href="#"
               class="shadow-md inline-flex items-center px-4 py-3 text-primary rounded-lg active w-full border-2 border-primary bg-secondary"
