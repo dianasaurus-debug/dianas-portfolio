@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <nav class="bg-primary">
+    <nav class="top-0 w-full bg-primary">
         <div class="mx-auto px-10">
             <div class="relative flex h-16 items-center justify-between">
                 <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -35,14 +35,12 @@
                     </button>
                 </div>
                 <div class="flex flex-1 items-center justify-center sm:justify-between">
-                    <div class="hidden sm:block">
+                    <div class="w-1/6 hidden sm:block">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="#" class="btn-menubar" aria-current="page">Projects</a>
-                            <span class="mx-2 font-medium text-secondary text-3xl">|</span>
-                            <a href="#" class="btn-menubar">Experiences</a>
-                            <span class="mx-2 font-medium text-secondary text-3xl">|</span>
-                            <a href="#" class="btn-menubar">About</a>
+                            <a href="#projects" class="btn-menubar" aria-current="page">Projects</a>
+                            <a href="#experiences" class="btn-menubar">Experiences</a>
+                            <a href="#about" class="btn-menubar">About</a>
                         </div>
                     </div>
                     <div class="flex flex-shrink-0 items-center">
