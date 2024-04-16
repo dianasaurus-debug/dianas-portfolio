@@ -280,7 +280,7 @@ export default {
           :key="idx"
           
         >
-        <div class="mt-10 mb-2 grid grid-cols-2 gap-4">
+        <div class="mt-10 mb-2 grid grid-cols-2 gap-2">
         <div v-for="(project, index) in project_list" @click="setIsOpen(project)" class="font-imfell flex flex-row justify-start mb-4">
           <div class="w-1/2" >
             <img class="border-4 border-primary w-full h-full" :src="project.img" alt="Sunset in the mountains">
