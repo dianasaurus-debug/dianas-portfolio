@@ -2,13 +2,13 @@
     @apply bg-primary hover:bg-secondary hover:text-primary text-white font-bold py-2 px-4 rounded
 }
 .btn-menubar {
-    @apply text-white font-imfell hover:border-secondary hover:border-2 hover:text-secondary hover:rounded-md hover:text-lg px-2 py-2 text-xl font-medium
+    @apply text-white reg_padding font-comic hover:sketch-navbar hover:text-secondary hover:text-lg text-xl font-medium
 }
 .btn-card {
-    @apply text-primary border-primary hover:bg-secondary font-imfell border-2 hover:border-black hover:text-black px-3 py-1 rounded-lg text-sm font-medium
+    @apply text-primary border-primary hover:bg-secondary font-comic border-2 hover:border-black hover:text-black px-3 py-1 rounded-lg text-sm font-medium
 }
 .btn-menubar-mobile {
-    @apply text-white font-imfell hover:bg-secondary hover:text-black block hover:rounded-md px-2 py-2 text-base font-medium
+    @apply text-white font-comic hover:bg-secondary hover:text-black block hover:rounded-md px-2 py-2 text-base font-medium
 }
 .btn-switch-left {
     @apply text-sm font-medium text-primary bg-white border border-primary rounded-s-lg hover:bg-primary hover:text-white focus:z-10 focus:bg-primary focus:ring-2 focus:ring-secondary focus:text-white
@@ -18,4 +18,56 @@
 }
 .btn-switch-center {
     @apply text-sm font-medium text-primary bg-white border-t border-b border-r border-primary hover:bg-primary hover:text-white focus:z-10 focus:bg-primary focus:ring-2 focus:ring-secondary focus:text-white
+}
+.btn-sketched {
+    @apply sketch text-primary
+}
+.btn-sketched-dark {
+    @apply sketch-dark text-black
+}
+@layer components {
+    .sketch {
+        background:transparent;
+        padding:0.2rem 0.7rem !important;
+        font-size:15px !important;
+        outline:none !important;
+        border:solid 3px #7F3C10 !important;
+        box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2) !important;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+    }
+    .reg_padding {
+        padding : 0.2rem 0.7rem;
+    }
+    .sketch-navbar {
+        background:transparent;
+        padding:0.2rem 0.7rem !important;
+        font-size:15px !important;
+        outline:none !important;
+        border:solid 3px #D9C6B5 !important;
+        box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2) !important;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+    }
+    .sketch-dark {
+        background:transparent;
+        padding:0.2rem 0.7rem !important;
+        font-size:15px !important;
+        outline:none !important;
+        border:solid 3px #000000 !important;
+        box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2) !important;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+    }
+    .sketch:hover {
+        box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+        background-color: #D9C6B5;
+        padding:0.3rem 0.8rem !important;
+    }
+    .sketch-navbar:hover {
+        box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+        padding:0.3rem 0.8rem !important;
+    }
+    .sketch-dark:hover {
+        box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+        background-color: #cacaca;
+        padding:0.3rem 0.8rem !important;
+    }
 }

@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme');
-
 export default {
   content: [
     "./index.html",
@@ -9,7 +8,8 @@ export default {
   plugins: [
     "postcss-import",
     "tailwindcss",
-    "autoprefixer"
+    "autoprefixer",
+    
   ],
   theme: {
     extend: {
@@ -26,6 +26,7 @@ export default {
       fontFamily: {
         imfell: ['IM Fell Double Pica', 'serif'],
         satisfy: ['Satisfy', 'cursive'],
+        comic: ["Comic Neue", 'cursive'],
       },
     },
   },

@@ -38,7 +38,7 @@ export default {
       currProject.value = project;
       isProjectModalOpen.value = true
     }
-    function closeModal(){
+    function closeModal() {
       isProjectModalOpen.value = false
 
     }
@@ -47,97 +47,129 @@ export default {
     const count = ref(0)
     const skills = ['HTML', 'CSS', 'PHP', 'Javascript', 'Dart', 'JQuery', 'Laravel', 'Express JS', 'Vue', 'Flutter', 'Tailwind', 'Bootstrap']
     const projects = ref({
-      Website : [
-      { title: 'Website SuperApp Migas', 
-      desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 
-      img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', 
-      tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
-      features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',]
-    },
-      { title: 'Ninuninu.id', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
-      features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',]
-    },
-      { title: 'PMB UISI', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
-      features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Presensi UISI', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
-      features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'SFL UNAIR', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
-      features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Online Cash Waqf Management Information System', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
-      features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Short Interval Meeting System Website (SIM)', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
-      features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Otodeli.id', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
-      features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'UISI Pay', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',]},
+      Website: [
+        {
+          title: 'Website SuperApp Migas',
+          desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.',
+          img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg',
+          tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
+          features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Ninuninu.id', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
+          features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'PMB UISI', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
+          features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Presensi UISI', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
+          features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'SFL UNAIR', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
+          features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Online Cash Waqf Management Information System', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
+          features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Short Interval Meeting System Website (SIM)', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
+          features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Otodeli.id', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }],
+          features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'UISI Pay', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', img: 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
 
-    ],
-      Mobile : [
-      { title: 'EV EDU', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Ninuninu.id', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Otodeli', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Wanto Wedding', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',]},
-      { title: 'Store Barcode Project', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Online Cash Waqf Management Information System', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Falling Detection', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
-      { title: 'Sistem Tanggap Darurat Kabupaten Bojonegoro', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features : ['The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-      'The plugins for Craft CMS that I sell through their dedicated plugins store',
-       'The plugins for Craft CMS that I sell through their dedicated plugins store',] },
+      ],
+      Mobile: [
+        {
+          title: 'EV EDU', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Ninuninu.id', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Otodeli', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Wanto Wedding', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Store Barcode Project', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Online Cash Waqf Management Information System', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Falling Detection', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
+        {
+          title: 'Sistem Tanggap Darurat Kabupaten Bojonegoro', desc: 'The plugins for Craft CMS that I sell through their dedicated plugins store.', 'img': 'https://assets-a1.kompasiana.com/items/album/2020/12/19/evermore-5fdde993d541df216e23c974.jpg', tags: [{ title: 'Laravel' }, { title: 'Tailwind' }, { title: 'Vue 3' }], features: ['The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',
+            'The plugins for Craft CMS that I sell through their dedicated plugins store',]
+        },
 
-    ]
+      ]
     });
-    
-    const project_icons = ref({Website : 'fa-solid mr-2 fa-globe', Mobile : 'fa-solid mr-2 fa-mobile',})
-      
+
+    const project_icons = ref({ Website: 'web.png', Mobile: 'mobile.png', })
+
 
     const experiences = ref([
       {
@@ -207,105 +239,111 @@ export default {
       <Navbar></Navbar>
       <div class="px-6 py-14 lg:px-8">
         <div class="flex flex-row justify-between">
-        <div class="flex flex-col justify-end w-1/2 pb-20">
-          <div>
-            <h1 class="font-satisfy text-primary text-3xl">What can I do for you?</h1>
-            <div class="flex flex-col my-5 max-w-2xl mr-2">
-              <div class="flex my-2 flex-row items-center">
-                <i class="fas fa-gear mr-5 fa-2x"></i>
-                <span class="font-imfell text-xl">I’m good with Back-end Development. Handling APIs, Databases and 3rd
-                  parties.</span>
-              </div>
-              <div class="flex my-2 flex-row items-center">
-                <i class="fas fa-eye mr-5 fa-2x"></i>
-                <span class="font-imfell text-xl">Experienced with Front-end Development. Handling layout, components,
-                  styling and client side logics.</span>
-              </div>
-              <div class="flex my-2 flex-row items-center">
-                <i class="fas fa-mobile mr-5 fa-2x"></i>
-                <span class="font-imfell text-xl">Developed some mobile apps with Flutter. Good at working with
-                  Notifications, Deep link, Providers and Interfaces</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-4/6 ">
-          <div class="flex flex-row">
-            <img class="w-4/12" :src="getImageUrl('../assets/images/me.png')">
-            <div class="text-3xl my-20">
-              <div class="mb-10"><span class="font-imfell">I'm </span><span
-                  class="font-satisfy font-bold text-4xl ml-2">Diana Fitri</span></div>
-              <div><span class="font-imfell">I’m a versatile developer;<br>I code with many languages;</span></div>
-              <div>
-                <div class="grid grid-cols-5 gap-2 my-5">
-                  <div class="badge-primary text-sm text-center" v-for="(skill, index) in skills">{{ skill }}</div>
+          <div class="flex flex-col justify-end w-1/2 pb-10 mr-10">
+            <div class="w-full">
+              <h6 class="font-satisfy text-2xl mb-3">🎼🎵 Play my favorite songs 🎤🎧</h6>
+              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0kf3iuCnrzAeQand0fMVvG?utm_source=generator" width="80%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+            <div class="mt-10">
+              <h1 class="font-satisfy text-primary text-3xl">What can I do for you?</h1>
+              <div class="flex flex-col my-5 max-w-2xl mr-2">
+                <div class="flex my-3 flex-row items-center">
+                  <img class="mr-4" style="width : 80px"
+                    :src="getImageUrl('../assets/images/oc-project-development.png')">
+                  <span class="font-comic text-xl">I’m good with Back-end Development. Handling APIs, Databases and 3rd
+                    parties.</span>
+                </div>
+                <div class="flex my-3 flex-row items-center">
+                  <img class="mr-4" style="width : 80px" :src="getImageUrl('../assets/images/oc-target.png')">
+                  <span class="font-comic text-xl">Experienced with Front-end Development. Handling layout, components,
+                    styling and client side logics.</span>
+                </div>
+                <div class="flex my-3 flex-row items-center">
+                  <img class="mr-4" style="width : 80px" :src="getImageUrl('../assets/images/ec-notification.png')">
+                  <span class="font-comic text-xl">Developed some mobile apps with Flutter. Good at working with
+                    Notifications, Deep link, Providers and Interfaces</span>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="w-4/6">
+            <div class="flex flex-row">
+              <img class="w-4/12" :src="getImageUrl('../assets/images/me.png')">
+              <div class="text-3xl my-20">
+                <div class="w-full mb-10 py-6 px-6 border-sketched shadow">
+                  <div class="flex flex-row items-center">
+                    <img class="w-24 h-24 mr-3 rounded-full shadow-lg" :src="getImageUrl('../assets/images/anna.jpg')"
+                      alt="Bonnie image" />
+                    <div class="flex flex-col justify-center">
+                      <h5 class="mb-1 text-2xl text-primary font-comic">Diana Fitri 🎸🍔</h5>
+                      <span class="text-lg text-dark font-comic">Fullstack Developer + Software Development Enthusiast. I love coding, music and foods.</span>
+                    </div>
+                  </div>
+                </div>
 
+                <!-- <div class="mb-10"><span class="font-imfell">I'm </span><span
+                  class="font-satisfy font-bold text-4xl ml-2">Diana Fitri</span></div> -->
+                <div><span class="font-comic">I’m a versatile developer;<br>I code with many languages;</span></div>
+                <div>
+                  <div class="grid grid-cols-5 gap-2 my-5">
+                    <div class="badge-primary text-sm text-center" v-for="(skill, index) in skills">{{ skill }}</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
-      </div>
-      <hr class="w-3/4 ml-10 h-1 bg-primary border-0 dark:bg-primary">
+        <hr class="w-3/4 ml-10 h-1 bg-primary border-0 dark:bg-primary">
       </div>
     </header>
     <!-- projects section -->
     <div class="px-40 py-14" id="projects">
-      <h1 class="font-imfell text-primary text-5xl text-center mb-10">Projects</h1>
-
-
+      <div class="flex flex-col items-end">
+        <h1 class="font-comic text-primary text-5xl text-center mb-10">Projects</h1>
+        <!-- <img class="w-1/4" :src="getImageUrl('../assets/images/ec-buy-domain.png')"> -->
+      </div>
       <TabGroup>
         <div class="border-b border-secondary">
           <TabList class="flex flex-wrap -mb-px text-lg font-medium text-center text-primary">
-            <Tab
-              v-for="category in Object.keys(projects)"
-              as="template"
-              :key="category"
-              v-slot="{ selected }"
-            >
-            <div class="me-2">
+            <Tab v-for="category in Object.keys(projects)" as="template" :key="category" v-slot="{ selected }">
+              <div class="me-2">
                 <div
-                  :class="{'cursor-pointer inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg text-primary bg-secondary border-primary group' : selected, 'cursor-pointer inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-primary hover:rounded-md hover:bg-secondary hover:border-primary group' : !selected}">
-                  <i :class="project_icons[category]"></i>{{ category }}
+                  :class="{ 'cursor-pointer inline-flex items-center justify-center p-2 border-b-2 rounded-t-lg text-primary border-primary group': selected, 'cursor-pointer inline-flex items-center justify-center p-2 rounded-t-lg hover:text-primary hover:rounded-md hover:bg-secondary hover:border-primary group': !selected }">
+                  <div class="flex flex-row items-center"><img style="height : 50px" class="mr-3" :src="getImageUrl('../assets/images/'+project_icons[category])"><span class="text-xl font-comic">{{ category }}</span></div>
                 </div>
               </div>
             </Tab>
           </TabList>
         </div>
-   
+        <TabPanels class="mt-2">
+          <TabPanel v-for="(project_list, idx) in Object.values(projects)" :key="idx">
+            <div class="mt-10 mb-2 grid grid-cols-2 gap-2">
+              <div v-for="(project, index) in project_list" @click="setIsOpen(project)"
+                class="font-comic flex flex-row justify-start mb-4">
+                <div class="w-1/2">
+                  <img class="border-4 border-primary w-full h-full" :src="project.img" alt="Sunset in the mountains">
+                </div>
 
-      <TabPanels class="mt-2">
-        <TabPanel
-          v-for="(project_list, idx) in Object.values(projects)"
-          :key="idx"
-          
-        >
-        <div class="mt-10 mb-2 grid grid-cols-2 gap-2">
-        <div v-for="(project, index) in project_list" @click="setIsOpen(project)" class="font-imfell flex flex-row justify-start mb-4">
-          <div class="w-1/2" >
-            <img class="border-4 border-primary w-full h-full" :src="project.img" alt="Sunset in the mountains">
-          </div>
-        
-          <div class="px-4 py-2 flex flex-col justify-center">
-              <div class="font-boldest text-xl text-primary">{{ project.title }}</div>
-              <p class="text-black my-2 text-sm">
-                {{ project.desc }}
-              </p>
-              <div class="mt-2">
-                <button class="btn-card mr-2">Demo</button>
-                <button class="btn-card">More</button>
+                <div class="px-4 py-2 flex flex-col justify-center">
+                  <div class="font-boldest text-xl text-primary">{{ project.title }}</div>
+                  <p class="text-black my-2 text-sm">
+                    {{ project.desc }}
+                  </p>
+                  <div class="mt-2">
+                    <button class="btn-sketched-dark mr-2">Demo</button>
+                    <button class="btn-sketched">More</button>
+                  </div>
+                </div>
+
               </div>
-          </div>
-           
-          </div>
-        </div>
+            </div>
 
-        </TabPanel>
-      </TabPanels>
-    </TabGroup>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
 
 
-      
+
 
       <a href="#"
         class="float-right inline-flex items-center justify-center py-2 px-4 text-base font-medium text-white rounded-lg bg-primary hover:text-gray-900 hover:bg-secondary">
@@ -321,7 +359,7 @@ export default {
     </div>
     <!-- experiences section -->
     <div class="px-40 py-14" id="experiences">
-      <h1 class="font-imfell text-primary text-5xl text-center mb-10">Experiences</h1>
+      <h1 class="font-comic text-primary text-5xl text-center mb-10">Experiences</h1>
 
 
 
@@ -330,63 +368,63 @@ export default {
           class="flex-column space-y space-y-4 text-md font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
           <li>
             <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary rounded-lg w-full border-2 border-primary hover:bg-secondary"
+              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
               aria-current="page">
               Education
             </a>
           </li>
           <li>
             <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary rounded-lg active w-full border-2 border-primary bg-secondary"
+              class="shadow-md inline-flex items-center px-4 py-3 text-primary active w-full border-sketched bg-secondary"
               aria-current="page">
               Full-time
             </a>
           </li>
           <li>
             <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary rounded-lg w-full border-2 border-primary hover:bg-secondary"
+              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
               aria-current="page">
               Freelance
             </a>
           </li>
           <li>
             <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary rounded-lg w-full border-2 border-primary hover:bg-secondary"
+              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
               aria-current="page">
               Internship
             </a>
           </li>
           <li>
             <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary rounded-lg w-full border-2 border-primary hover:bg-secondary"
+              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
               aria-current="page">
               Volunteer
             </a>
           </li>
           <li>
             <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary rounded-lg w-full border-2 border-primary hover:bg-secondary"
+              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
               aria-current="page">
               Club
             </a>
           </li>
 
         </ul>
-        <div class="p-6 border-2 border-primary rounded-lg w-full">
+        <div class="p-6 border-sketched w-full">
           <div class="mt-10 mb-2 flex flex-col">
             <div v-for="(experience, index) in experiences" class="flex mb-6 flex-row items-start">
               <div class="flex flex-row items-end w-1/4">
                 <img class="h-20 mr-3" :src="getImageUrl(experience.logo)">
                 <div class="flex flex-col justify-end">
-                  <span class="text-xl font-imfell text-primary">{{ experience.place }}</span>
-                  <span class="text-lg font-imfell text-primary">{{ experience.year }}</span>
+                  <span class="text-xl font-comic text-primary">{{ experience.place }}</span>
+                  <span class="text-lg font-comic text-primary">{{ experience.year }}</span>
                 </div>
               </div>
               <div class="w-3/4 flex flex-col">
-                <span class="text-lg font-imfell text-primary">
+                <span class="text-lg font-comic text-primary">
                   {{ experience.position }} ({{ experience.period }})
                 </span>
-                <ul class="max-w-md text-black list-disc list-inside font-imfell">
+                <ul class="max-w-md text-black list-disc list-inside font-comic">
                   <li v-for="(jobdesk, index) in experience.jobdesks">
                     {{ jobdesk }}
                   </li>
@@ -415,11 +453,13 @@ export default {
       <div class="w-full flex flex-between">
         <div class="mr-20">
           <div class="text-5xl text-primary mb-6 font-satisfy">Nice to meet you!</div>
-          <div class="font-imfell mb-4 text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          <div class="font-comic mb-4 text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
             Lorem
-            Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+            Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+            galley
             of type and scrambled it to make a type specimen book. </div>
-          <div class="font-imfell text-lg">It has survived not only five centuries, but also the leap into electronic
+          <div class="font-comic text-lg">It has survived not only five centuries, but also the leap into electronic
             typesetting,
             remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
             containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
@@ -440,12 +480,13 @@ export default {
         </div>
         <div class="text-right">
           <div class="text-5xl text-secondary mb-6 font-satisfy">How much I love my jobs</div>
-          <div class="font-imfell mb-4 text-lg text-white">Lorem Ipsum is simply dummy text of the printing and
+          <div class="font-comic mb-4 text-lg text-white">Lorem Ipsum is simply dummy text of the printing and
             typesetting
             industry. Lorem
-            Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+            Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+            galley
             of type and scrambled it to make a type specimen book. </div>
-          <div class="font-imfell text-lg text-white">It has survived not only five centuries, but also the leap into
+          <div class="font-comic text-lg text-white">It has survived not only five centuries, but also the leap into
             electronic typesetting,
             remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
             containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
@@ -456,12 +497,13 @@ export default {
       <div class="w-full flex flex-between items-center px-40 pt-3">
         <div class="mr-20">
           <div class="text-5xl text-secondary mb-6 font-satisfy">My hobbies?</div>
-          <div class="font-imfell mb-4 text-lg text-white">Lorem Ipsum is simply dummy text of the printing and
+          <div class="font-comic mb-4 text-lg text-white">Lorem Ipsum is simply dummy text of the printing and
             typesetting
             industry. Lorem
-            Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+            Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+            galley
             of type and scrambled it to make a type specimen book. </div>
-          <div class="font-imfell text-lg text-white">It has survived not only five centuries, but also the leap into
+          <div class="font-comic text-lg text-white">It has survived not only five centuries, but also the leap into
             electronic typesetting,
             remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
             containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
@@ -473,63 +515,66 @@ export default {
     </div>
     <Footer></Footer>
     <TransitionRoot appear :show="isProjectModalOpen" as="template">
-        <Dialog as="div" @close="closeModal" class="relative z-10">
-          <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
-            leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
-            <div class="fixed inset-0 bg-black/25" />
-          </TransitionChild>
+      <Dialog as="div" @close="closeModal" class="relative z-10">
+        <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
+          leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
+          <div class="fixed inset-0 bg-black/25" />
+        </TransitionChild>
 
-          <div class="fixed inset-0 overflow-y-auto font-imfell">
-            <div class="flex min-h-full items-center justify-center p-4 text-center">
-              <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
-                enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
-                leave-to="opacity-0 scale-95">
-                <DialogPanel
-                  class="w-full max-w-6xl transform overflow-hidden rounded-2xl bg-white p-3 border-2 border-primary text-left align-middle shadow-xl transition-all">
-                 
-                  <div class="my-2">
-                    <div class="w-full mb-2">
-                      <Carousel>
-                        <Slide v-for="slide in 3" :key="slide">
-                          <div class="carousel__item" :style="{backgroundImage : `url('${getImageUrl(currProject.img)}')`}">
-                          </div>
-                        </Slide>
-                        <template #addons>
-                          <Navigation />
-                          <Pagination />
-                        </template>
-                      </Carousel>
-                    </div>
-                    
-                   <div class="px-4">
+        <div class="fixed inset-0 overflow-y-auto font-comic">
+          <div class="flex min-h-full items-center justify-center p-4 text-center">
+            <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
+              enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
+              leave-to="opacity-0 scale-95">
+              <DialogPanel
+                class="w-full max-w-6xl transform overflow-hidden bg-white p-3 border-sketched text-left align-middle shadow-xl transition-all">
+
+                <div class="my-2">
+                  <div class="w-full mb-2">
+                    <Carousel>
+                      <Slide v-for="slide in 3" :key="slide">
+                        <div class="carousel__item"
+                          :style="{ backgroundImage: `url('${getImageUrl(currProject.img)}')` }">
+                        </div>
+                      </Slide>
+                      <template #addons>
+                        <Navigation />
+                        <Pagination />
+                      </template>
+                    </Carousel>
+                  </div>
+
+                  <div class="px-4">
                     <div class="py-2">
-                      <span class="label-secondary mr-2 mb-2" v-for="(tag, index) in currProject.tags">{{ tag.title }}</span>
+                      <span class="label-secondary mr-2 mb-2" v-for="(tag, index) in currProject.tags">{{ tag.title
+                        }}</span>
                     </div>
                     <h3 as="h3" class="text-lg font-medium leading-6 mb-3 text-gray-900">
-                    {{ currProject.title }}
+                      {{ currProject.title }}
                     </h3>
                     <div class="w-3/4">
                       <p class="text-md text-gray-500 ">
-                        Your payment has been successfully submitted. We’ve sent you an email with all of the details of your order.
+                        Your payment has been successfully submitted. We’ve sent you an email with all of the details of
+                        your order.
                       </p>
                       <h5 class="mt-2">Fitur : </h5>
-                      <ul class="ml-6 text-gray-500 list-disc font-imfell">
+                      <ul class="ml-6 text-gray-500 list-disc font-comic">
                         <li v-for="(feature, index) in currProject.features">
                           {{ feature }}
                         </li>
                       </ul>
                     </div>
-                   </div>
-                     
                   </div>
 
-                  
-                </DialogPanel>
-              </TransitionChild>
-            </div>
+                </div>
+
+
+              </DialogPanel>
+            </TransitionChild>
           </div>
-        </Dialog>
-      </TransitionRoot>
+        </div>
+      </Dialog>
+    </TransitionRoot>
   </div>
 </template>
 
@@ -543,9 +588,11 @@ export default {
   border-radius: 8px;
 
 }
+
 .carousel__prev,
 .carousel__next {
   box-sizing: content-box;
   border: 5px solid white;
 }
+
 </style>

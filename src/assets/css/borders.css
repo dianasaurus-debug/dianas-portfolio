@@ -1,0 +1,11 @@
+.border-sketched {
+    @apply sketch-border
+}
+
+@layer components {
+    .sketch-border {
+        border:solid 2px #7F3C10 !important;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;    
+    }
+   
+}
