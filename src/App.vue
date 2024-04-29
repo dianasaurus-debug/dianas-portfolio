@@ -33,9 +33,27 @@ export default {
   },
 
   setup() {
+
+    // Show button when user scrolls down
+
+    // Smooth scroll to top
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
     const portoParent = ref(null);
     onMounted(() => {
       window.addEventListener('scroll', onScroll);
+      window.addEventListener('scroll', () => {
+        var scrollToTopButton = document.getElementById('scroll-to-top');
+        if (window.pageYOffset > 100) {
+          scrollToTopButton.style.display = 'block';
+        } else {
+          scrollToTopButton.style.display = 'none';
+        }
+      });
     });
 
     const showNavbar = ref(true)
@@ -385,7 +403,8 @@ export default {
       showNavbar,
       lastScrollPosition,
       onScroll,
-      portoParent
+      portoParent,
+      scrollToTop
     }
   },
 
@@ -493,10 +512,10 @@ export default {
               <TransitionRoot appear :show="selected" enter="duration-500 ease-out" enter-from="opacity-0 scale-95"
                 enter-to="opacity-100 scale-100" leave="duration-300 ease-in" leave-from="opacity-100 scale-100"
                 leave-to="opacity-0 scale-95">
-                <div class="mt-10 mb-2 grid grid-cols-2 gap-2">
+                <div class="mt-10 mb-2 grid grid-cols-2 gap-3">
                   <div v-for="(project, index) in project_list" @click="setIsOpen(project)"
                     class="font-comic flex flex-row justify-start mb-4">
-                    <div class="w-1/2">
+                    <div class="w-1/3">
                       <img class="border-4 border-primary w-full h-full" :src="project.img"
                         alt="Sunset in the mountains">
                     </div>
@@ -531,7 +550,7 @@ export default {
       </div>
     </div>
     <!-- experiences section -->
-    <div class="px-40 py-14 h-[750px]" id="experiences">
+    <div class="px-40 py-14" id="experiences">
       <h1 class="font-comic text-primary text-5xl text-center mb-10">Experiences</h1>
       <TabGroup :selectedIndex="selectedExperienceTab" @change="changeselectedExperienceTab">
         <div class="md:flex">
@@ -552,7 +571,7 @@ export default {
           </TabList>
 
           <!-- </ul> -->
-          <div class="px-6 w-full">
+          <div class="p-6 w-full border-sketched">
             <TabPanels class="mb-2 flex flex-col">
               <TabPanel v-slot="{ selected }" v-for="(experience_list, idx) in Object.values(experiences)" :key="idx">
                 <TransitionRoot appear :show="selected" enter="duration-500 ease-out" enter-from="opacity-0 scale-95"
@@ -707,6 +726,14 @@ export default {
         </div>
       </Dialog>
     </TransitionRoot>
+    <button @click="scrollToTop" id="scroll-to-top" class="fixed bottom-4 right-4 
+                       border-sketched
+                       bg-white text-black px-3 py-2
+                       shadow-lg
+                       transition duration-300 hover:bg-secondary
+                       hover:text-primary">
+      <i class="fas fa-chevron-up"></i>
+    </button>
   </div>
 </template>
 
