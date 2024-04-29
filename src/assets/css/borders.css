@@ -2,10 +2,18 @@
     @apply sketch-border
 }
 
+.animated_icon {
+    @apply animate_scale
+}
+
 @layer components {
     .sketch-border {
-        border:solid 2px #7F3C10 !important;
-        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;    
+        border: solid 2px #7F3C10 !important;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     }
-   
+
+    .animate_scale {
+        --fa-beat-scale: 2.0;
+    }
+
 }

@@ -1,5 +1,5 @@
 <script>
-import { ref, defineExpose } from 'vue'
+import { ref, defineExpose, onMounted } from 'vue'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 import Experience from './components/Experience.vue'
@@ -33,6 +33,26 @@ export default {
   },
 
   setup() {
+    const portoParent = ref(null);
+    onMounted(() => {
+      window.addEventListener('scroll', onScroll);
+    });
+
+    const showNavbar = ref(true)
+    const lastScrollPosition = ref(0)
+    function onScroll() {
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+      // Stop executing this function if the difference between
+      // current scroll position and last scroll position is less than some offset
+      if (Math.abs(currentScrollPosition - lastScrollPosition.value) < 60) {
+        return
+      }
+      showNavbar.value = currentScrollPosition < lastScrollPosition.value
+      lastScrollPosition.value = currentScrollPosition
+    }
     const getImageUrl = (url) => {
       return new URL(url, import.meta.url).href
     }
@@ -361,7 +381,11 @@ export default {
       selectedExperienceTab,
       changeselectedExperienceTab,
       selectedProjectIndex,
-      changeSelectedProject
+      changeSelectedProject,
+      showNavbar,
+      lastScrollPosition,
+      onScroll,
+      portoParent
     }
   },
 
@@ -372,13 +396,13 @@ export default {
 </script>
 
 <template>
-  <div class="h-full">
+  <div class="h-full" ref="portoParent">
     <header>
-      <Navbar></Navbar>
-      <div class="px-6 py-14 lg:px-8">
+      <Navbar :showNavbar="showNavbar"></Navbar>
+      <div class="px-6 pb-14 lg:pt-[120px] lg:px-8">
         <div class="flex flex-row justify-between">
           <div class="flex flex-col justify-end w-1/2 pb-10 mr-10">
-            <div class="w-full">
+            <div class="w-full transition ease-in-out delay-150 hover:-translate-x-2 duration-500">
               <h6 class="font-satisfy text-2xl mb-3">🎼🎵 Play my favorite songs 🎤🎧</h6>
               <iframe style="border-radius:12px"
                 src="https://open.spotify.com/embed/playlist/0kf3iuCnrzAeQand0fMVvG?utm_source=generator" width="80%"
@@ -412,7 +436,8 @@ export default {
             <div class="flex flex-row">
               <img class="w-4/12" :src="getImageUrl('../assets/images/me.png')">
               <div class="text-3xl my-20">
-                <div class="w-full mb-10 py-6 px-6 border-sketched shadow">
+                <div
+                  class="w-full mb-10 py-6 px-6 border-sketched shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400">
                   <div class="flex flex-row items-center">
                     <img class="w-24 h-24 mr-3 rounded-full shadow-lg" :src="getImageUrl('../assets/images/anna.jpg')"
                       alt="Bonnie image" />
@@ -465,10 +490,9 @@ export default {
           <TabPanels class="mt-2">
             <TabPanel as="template" v-slot="{ selected }" :unmount="false"
               v-for="(project_list, idx) in Object.values(projects)" :key="idx">
-              <transition name="fade"
-              mode="out-in"
-              appear
-              :duration="500">
+              <TransitionRoot appear :show="selected" enter="duration-500 ease-out" enter-from="opacity-0 scale-95"
+                enter-to="opacity-100 scale-100" leave="duration-300 ease-in" leave-from="opacity-100 scale-100"
+                leave-to="opacity-0 scale-95">
                 <div class="mt-10 mb-2 grid grid-cols-2 gap-2">
                   <div v-for="(project, index) in project_list" @click="setIsOpen(project)"
                     class="font-comic flex flex-row justify-start mb-4">
@@ -490,7 +514,7 @@ export default {
 
                   </div>
                 </div>
-              </transition>
+              </TransitionRoot>
 
             </TabPanel>
           </TabPanels>
@@ -507,7 +531,7 @@ export default {
       </div>
     </div>
     <!-- experiences section -->
-    <div class="px-40 py-14" id="experiences">
+    <div class="px-40 py-14 h-[750px]" id="experiences">
       <h1 class="font-comic text-primary text-5xl text-center mb-10">Experiences</h1>
       <TabGroup :selectedIndex="selectedExperienceTab" @change="changeselectedExperienceTab">
         <div class="md:flex">
@@ -528,11 +552,17 @@ export default {
           </TabList>
 
           <!-- </ul> -->
-          <div class="p-6 border-sketched w-full">
-            <TabPanels class="mt-10 mb-2 flex flex-col">
-              <TabPanel v-for="(experience_list, idx) in Object.values(experiences)" :key="idx">
-                <experience :experience_list="experience_list" :jenis="Object.keys(experiences)[selectedExperienceTab]">
-                </experience>
+          <div class="px-6 w-full">
+            <TabPanels class="mb-2 flex flex-col">
+              <TabPanel v-slot="{ selected }" v-for="(experience_list, idx) in Object.values(experiences)" :key="idx">
+                <TransitionRoot appear :show="selected" enter="duration-500 ease-out" enter-from="opacity-0 scale-95"
+                  enter-to="opacity-100 scale-100" leave="duration-300 ease-in" leave-from="opacity-100 scale-100"
+                  leave-to="opacity-0 scale-95">
+                  <experience :experience_list="experience_list"
+                    :jenis="Object.keys(experiences)[selectedExperienceTab]">
+                  </experience>
+                </TransitionRoot>
+
               </TabPanel>
             </TabPanels>
             <!-- <a href="#"
@@ -625,8 +655,8 @@ export default {
 
         <div class="fixed inset-0 overflow-y-auto font-comic">
           <div class="flex min-h-full items-center justify-center p-4 text-center">
-            <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
-              enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
+            <TransitionChild as="template" enter="duration-500 ease-out" enter-from="opacity-0 scale-95"
+              enter-to="opacity-100 scale-100" leave="duration-300 ease-in" leave-from="opacity-100 scale-100"
               leave-to="opacity-0 scale-95">
               <DialogPanel
                 class="w-full max-w-3xl transform overflow-hidden bg-white p-3 border-sketched text-left align-middle shadow-xl transition-all">
@@ -695,45 +725,5 @@ export default {
 .carousel__next {
   box-sizing: content-box;
   border: 5px solid white;
-}
-.fade-enter-active,
-.fade-leave-active {
-  & > * {
-    transition-duration: 200ms;
-  transition-property: opacity, transform;
-  transition-timing-function: cubic-bezier(.6,.15,.35,.8);
-  }
-  
-}
-
-$delay: 100ms;
-$delayStep: 100ms;
-
-.fade-enter,
-.fade-leave-to {
-  & > * {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-}
-.fade-enter-active {
-  & > * {
-    &:nth-child(2) {
-      transition-delay: $delay;
-    }
-    &:nth-child(3) {
-      transition-delay: $delay + $delayStep;
-    }
-  }
-}
-.fade-leave-active {
-  & > * {
-    &:nth-child(1) {
-      transition-delay: $delay + $delayStep;
-    }
-    &:nth-child(2) {
-      transition-delay: $delay;
-    }
-  }
 }
 </style>
