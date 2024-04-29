@@ -1,5 +1,5 @@
 <template>
-    <modal-foundation :show="show" :max-width="maxWidth" :closeable="closeable" @close="close">
+    <div :show="show" :max-width="maxWidth" :closeable="closeable" @close="close">
       <!-- Bagian Atas -->
       <div class="stretch-flex relative">
         <div class="modal-top">
@@ -28,12 +28,12 @@
       <div class="modal-footer">
         <slot name="footer" />
       </div>
-    </modal-foundation>
+    </div>
   </template>
   
   <script setup>
   import { useSlots } from 'vue';
-  import ModalFoundation from '@/Components/ModalFoundation.vue';
+  // import ModalFoundation from '@/Components/ModalFoundation.vue';
   
   defineProps({
     show: {

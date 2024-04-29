@@ -2,12 +2,14 @@
 import { ref, defineExpose } from 'vue'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
+import Experience from './components/Experience.vue'
 import {
   Dialog,
   DialogPanel,
   DialogTitle,
   DialogDescription,
-  TransitionRoot
+  TransitionRoot,
+  TransitionChild
 } from '@headlessui/vue'
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
@@ -20,10 +22,12 @@ export default {
     Navbar,
     Footer,
     Dialog,
+    Experience,
     DialogPanel,
     DialogTitle,
     DialogDescription,
     TransitionRoot,
+    TransitionChild,
     TabGroup, TabList, Tab, TabPanels, TabPanel,
     Carousel, Navigation, Pagination, Slide
   },
@@ -43,6 +47,19 @@ export default {
 
     }
 
+    const selectedExperienceTab = ref(0)
+
+    function changeselectedExperienceTab(index) {
+      selectedExperienceTab.value = index
+      console.log(`curr index : ${index}`);
+    }
+
+    const selectedProjectIndex = ref(0)
+
+    function changeSelectedProject(index) {
+      selectedProjectIndex.value = index
+      console.log(`curr index : ${index}`);
+    }
 
     const count = ref(0)
     const skills = ['HTML', 'CSS', 'PHP', 'Javascript', 'Dart', 'JQuery', 'Laravel', 'Express JS', 'Vue', 'Flutter', 'Tailwind', 'Bootstrap']
@@ -171,13 +188,53 @@ export default {
     const project_icons = ref({ Website: 'web.png', Mobile: 'mobile.png', })
 
 
-    const experiences = ref([
-      {
-        place: 'UISI',
-        year: '2021 - 2022',
-        logo: '../assets/images/uisi.png',
-        position: 'Web Developer - Full Time',
-        period: '1 year',
+    const experiences = ref({
+      FullTime: [
+        {
+          place: 'Tamura Indonesia',
+          year: '2022 - 2024',
+          logo: '../assets/images/tamura.png',
+          position: 'Software Engineer',
+          period: '2 years',
+          jobdesks: [
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)'
+          ]
+        },
+        {
+          place: 'UISI',
+          year: '2021 - 2022',
+          logo: '../assets/images/uisi.png',
+          position: 'Web Developer - Full Time',
+          period: '1 year',
+          jobdesks: [
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)'
+          ]
+        },
+      ],
+      Internship: [
+        {
+          place: 'PT Lanius Inovasi Indonesia',
+          year: '2021 - 2022',
+          logo: '../assets/images/machine.png',
+          position: 'Backend Developer',
+          period: '3 Months',
+          jobdesks: [
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)'
+          ]
+        },
+      ],
+      Freelance: [{
+        place: 'PPSDM Migas',
+        year: '2023 - Now',
+        logo: '../assets/images/esdm-logo.png',
+        position: 'FullStack Developer',
+        period: '1 Year',
         jobdesks: [
           'At least 10 characters (and up to 100 characters)',
           'At least 10 characters (and up to 100 characters)',
@@ -185,11 +242,11 @@ export default {
         ]
       },
       {
-        place: 'UISI',
-        year: '2021 - 2022',
-        logo: '../assets/images/uisi.png',
-        position: 'Web Developer - Full Time',
-        period: '1 year',
+        place: 'PT Vascomm Solusi Teknologi',
+        year: '2022 - 2023',
+        logo: '../assets/images/vascomm.png',
+        position: 'FullStack Developer',
+        period: '4 Months',
         jobdesks: [
           'At least 10 characters (and up to 100 characters)',
           'At least 10 characters (and up to 100 characters)',
@@ -197,19 +254,97 @@ export default {
         ]
       },
       {
-        place: 'UISI',
-        year: '2021 - 2022',
-        logo: '../assets/images/uisi.png',
-        position: 'Web Developer - Full Time',
-        period: '1 year',
+        place: 'DOT Indonesia',
+        year: '2022',
+        logo: '../assets/images/dot.png',
+        position: 'Frontend Developer',
+        period: '2 Months',
         jobdesks: [
           'At least 10 characters (and up to 100 characters)',
           'At least 10 characters (and up to 100 characters)',
           'At least 10 characters (and up to 100 characters)'
         ]
       },
+      {
+        place: 'Ngoding Cerdas',
+        year: '2020-2023',
+        logo: '../assets/images/Logo_PENS.png',
+        position: 'FullStack Developer & Mobile Developer',
+        period: '3 years',
+        jobdesks: [
+          'At least 10 characters (and up to 100 characters)',
+          'At least 10 characters (and up to 100 characters)',
+          'At least 10 characters (and up to 100 characters)'
+        ]
+      },
+      ],
+      Education: [
+        {
+          place: 'Electronic Engineering Polytechnic Institute of Surabaya',
+          year: 'Nov 2021 - March 2023',
+          logo: '../assets/images/Logo_PENS.png',
+          major: 'Informatics Engineering',
+          degree: 'Bachelor\'s Degree',
+          grade: '3.65',
+          jobdesks: [
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)'
+          ]
+        },
+        {
+          place: 'Electronic Engineering Polytechnic Institute of Surabaya',
+          year: 'Aug 2018 - Sept 2021',
+          logo: '../assets/images/Logo_PENS.png',
+          major: 'Informatics Engineering',
+          degree: 'Associate\'s Degree',
+          grade: '3.83',
+          jobdesks: [
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)'
+          ]
+        },
+        {
+          place: 'SMKN 1 Tuban',
+          year: 'May 2015 - May 2018',
+          logo: '../assets/images/smkn1tuban.png',
+          major: 'Computer and Networking Engineering',
+          degree: '-',
+          grade: '3.45',
+          jobdesks: [
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)'
+          ]
+        },
+      ],
+      Organizations: [
+        {
+          name: 'PENS International Cooperation Office',
+          year: '2020-2021',
+          logo: '../assets/images/cropped-pico1.png',
+          position: 'Hospitality Division',
+          jobdesks: [
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)'
+          ]
+        },
+        {
+          name: 'Himpunan Mahasiswa Informatika PENS',
+          year: '2018-2020',
+          logo: '../assets/images/himit.png',
+          position: 'Media and Information Division',
+          jobdesks: [
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)',
+            'At least 10 characters (and up to 100 characters)'
+          ]
+        }
+      ],
 
-    ])
+    })
 
     // expose to template and other options API hooks
     return {
@@ -219,11 +354,14 @@ export default {
       projects,
       project_icons,
       experiences,
-
       currProject,
       isProjectModalOpen,
       setIsOpen,
-      closeModal
+      closeModal,
+      selectedExperienceTab,
+      changeselectedExperienceTab,
+      selectedProjectIndex,
+      changeSelectedProject
     }
   },
 
@@ -242,7 +380,12 @@ export default {
           <div class="flex flex-col justify-end w-1/2 pb-10 mr-10">
             <div class="w-full">
               <h6 class="font-satisfy text-2xl mb-3">🎼🎵 Play my favorite songs 🎤🎧</h6>
-              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0kf3iuCnrzAeQand0fMVvG?utm_source=generator" width="80%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/playlist/0kf3iuCnrzAeQand0fMVvG?utm_source=generator" width="80%"
+                height="152" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
             <div class="mt-10">
               <h1 class="font-satisfy text-primary text-3xl">What can I do for you?</h1>
               <div class="flex flex-col my-5 max-w-2xl mr-2">
@@ -275,7 +418,8 @@ export default {
                       alt="Bonnie image" />
                     <div class="flex flex-col justify-center">
                       <h5 class="mb-1 text-2xl text-primary font-comic">Diana Fitri 🎸🍔</h5>
-                      <span class="text-lg text-dark font-comic">Fullstack Developer + Software Development Enthusiast. I love coding, music and foods.</span>
+                      <span class="text-lg text-dark font-comic">Fullstack Developer + Software Development Enthusiast.
+                        I love coding, music and foods.</span>
                     </div>
                   </div>
                 </div>
@@ -297,154 +441,112 @@ export default {
       </div>
     </header>
     <!-- projects section -->
-    <div class="px-40 py-14" id="projects">
-      <div class="flex flex-col items-end">
-        <h1 class="font-comic text-primary text-5xl text-center mb-10">Projects</h1>
-        <!-- <img class="w-1/4" :src="getImageUrl('../assets/images/ec-buy-domain.png')"> -->
-      </div>
-      <TabGroup>
-        <div class="border-b border-secondary">
-          <TabList class="flex flex-wrap -mb-px text-lg font-medium text-center text-primary">
-            <Tab v-for="category in Object.keys(projects)" as="template" :key="category" v-slot="{ selected }">
-              <div class="me-2">
-                <div
-                  :class="{ 'cursor-pointer inline-flex items-center justify-center p-2 border-b-2 rounded-t-lg text-primary border-primary group': selected, 'cursor-pointer inline-flex items-center justify-center p-2 rounded-t-lg hover:text-primary hover:rounded-md hover:bg-secondary hover:border-primary group': !selected }">
-                  <div class="flex flex-row items-center"><img style="height : 50px" class="mr-3" :src="getImageUrl('../assets/images/'+project_icons[category])"><span class="text-xl font-comic">{{ category }}</span></div>
-                </div>
-              </div>
-            </Tab>
-          </TabList>
+    <div id="projects">
+      <div class="mx-20 my-14">
+        <div class="flex flex-col items-end">
+          <h1 class="font-comic text-primary text-5xl text-center mb-10">Projects</h1>
+          <!-- <img class="w-1/4" :src="getImageUrl('../assets/images/ec-buy-domain.png')"> -->
         </div>
-        <TabPanels class="mt-2">
-          <TabPanel v-for="(project_list, idx) in Object.values(projects)" :key="idx">
-            <div class="mt-10 mb-2 grid grid-cols-2 gap-2">
-              <div v-for="(project, index) in project_list" @click="setIsOpen(project)"
-                class="font-comic flex flex-row justify-start mb-4">
-                <div class="w-1/2">
-                  <img class="border-4 border-primary w-full h-full" :src="project.img" alt="Sunset in the mountains">
-                </div>
-
-                <div class="px-4 py-2 flex flex-col justify-center">
-                  <div class="font-boldest text-xl text-primary">{{ project.title }}</div>
-                  <p class="text-black my-2 text-sm">
-                    {{ project.desc }}
-                  </p>
-                  <div class="mt-2">
-                    <button class="btn-sketched-dark mr-2">Demo</button>
-                    <button class="btn-sketched">More</button>
+        <TabGroup :selectedIndex="selectedProjectIndex" @change="changeSelectedProject">
+          <div class="border-b border-secondary">
+            <TabList class="flex flex-wrap -mb-px text-lg font-medium text-center text-primary">
+              <Tab v-for="category in Object.keys(projects)" as="template" :key="category" v-slot="{ selected }">
+                <div class="me-2">
+                  <div
+                    :class="{ 'cursor-pointer inline-flex items-center justify-center p-2 border-b-2 rounded-t-lg text-primary border-primary group': selected, 'cursor-pointer inline-flex items-center justify-center p-2 rounded-t-lg hover:text-primary hover:rounded-md hover:bg-secondary hover:border-primary group': !selected }">
+                    <div class="flex flex-row items-center"><img style="height : 50px" class="mr-3"
+                        :src="getImageUrl('../assets/images/' + project_icons[category])"><span
+                        class="text-xl font-comic">{{ category }}</span></div>
                   </div>
                 </div>
+              </Tab>
+            </TabList>
+          </div>
+          <TabPanels class="mt-2">
+            <TabPanel as="template" v-slot="{ selected }" :unmount="false"
+              v-for="(project_list, idx) in Object.values(projects)" :key="idx">
+              <transition name="fade"
+              mode="out-in"
+              appear
+              :duration="500">
+                <div class="mt-10 mb-2 grid grid-cols-2 gap-2">
+                  <div v-for="(project, index) in project_list" @click="setIsOpen(project)"
+                    class="font-comic flex flex-row justify-start mb-4">
+                    <div class="w-1/2">
+                      <img class="border-4 border-primary w-full h-full" :src="project.img"
+                        alt="Sunset in the mountains">
+                    </div>
 
-              </div>
-            </div>
+                    <div class="px-4 py-2 flex flex-col justify-center">
+                      <div class="font-boldest text-xl text-primary">{{ project.title }}</div>
+                      <p class="text-black my-2 text-sm">
+                        {{ project.desc }}
+                      </p>
+                      <div class="mt-2">
+                        <button class="btn-sketched-dark mr-2">▶️ Demo</button>
+                        <button class="btn-sketched">More 🔍</button>
+                      </div>
+                    </div>
 
-          </TabPanel>
-        </TabPanels>
-      </TabGroup>
+                  </div>
+                </div>
+              </transition>
 
-
-
-
-      <a href="#"
-        class="float-right inline-flex items-center justify-center py-2 px-4 text-base font-medium text-white rounded-lg bg-primary hover:text-gray-900 hover:bg-secondary">
-        <span class="w-full">Explore more projects</span>
-        <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-          viewBox="0 0 14 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M1 5h12m0 0L9 1m4 4L9 9" />
-        </svg>
-      </a>
-
-
+            </TabPanel>
+          </TabPanels>
+        </TabGroup>
+        <!-- <a href="#"
+          class="float-right inline-flex items-center justify-center py-2 px-4 text-base font-medium text-white rounded-lg bg-primary hover:text-gray-900 hover:bg-secondary">
+          <span class="w-full">Explore more projects</span>
+          <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a> -->
+      </div>
     </div>
     <!-- experiences section -->
     <div class="px-40 py-14" id="experiences">
       <h1 class="font-comic text-primary text-5xl text-center mb-10">Experiences</h1>
-
-
-
-      <div class="md:flex">
-        <ul
-          class="flex-column space-y space-y-4 text-md font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
-          <li>
-            <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
-              aria-current="page">
-              Education
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary active w-full border-sketched bg-secondary"
-              aria-current="page">
-              Full-time
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
-              aria-current="page">
-              Freelance
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
-              aria-current="page">
-              Internship
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
-              aria-current="page">
-              Volunteer
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              class="shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary"
-              aria-current="page">
-              Club
-            </a>
-          </li>
-
-        </ul>
-        <div class="p-6 border-sketched w-full">
-          <div class="mt-10 mb-2 flex flex-col">
-            <div v-for="(experience, index) in experiences" class="flex mb-6 flex-row items-start">
-              <div class="flex flex-row items-end w-1/4">
-                <img class="h-20 mr-3" :src="getImageUrl(experience.logo)">
-                <div class="flex flex-col justify-end">
-                  <span class="text-xl font-comic text-primary">{{ experience.place }}</span>
-                  <span class="text-lg font-comic text-primary">{{ experience.year }}</span>
+      <TabGroup :selectedIndex="selectedExperienceTab" @change="changeselectedExperienceTab">
+        <div class="md:flex">
+          <!-- <ul
+            class="flex-column space-y space-y-4 text-md font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0"> -->
+          <TabList
+            class="flex-column space-y space-y-4 text-md font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
+            <Tab v-for="(category, idx) in Object.keys(experiences)" as="template" :key="category"
+              v-slot="{ selected }">
+              <div>
+                <div
+                  :class="{ 'bg-secondary cursor-pointer shadow-md inline-flex items-center px-4 py-3 text-black w-full border-sketched hover:bg-secondary font-comic': idx == selectedExperienceTab, 'cursor-pointer shadow-md inline-flex items-center px-4 py-3 text-primary w-full border-sketched hover:bg-secondary': idx !== selectedExperienceTab }"
+                  aria-current="page">
+                  {{ category }}
                 </div>
               </div>
-              <div class="w-3/4 flex flex-col">
-                <span class="text-lg font-comic text-primary">
-                  {{ experience.position }} ({{ experience.period }})
-                </span>
-                <ul class="max-w-md text-black list-disc list-inside font-comic">
-                  <li v-for="(jobdesk, index) in experience.jobdesks">
-                    {{ jobdesk }}
-                  </li>
-                </ul>
+            </Tab>
+          </TabList>
 
-              </div>
-            </div>
-
+          <!-- </ul> -->
+          <div class="p-6 border-sketched w-full">
+            <TabPanels class="mt-10 mb-2 flex flex-col">
+              <TabPanel v-for="(experience_list, idx) in Object.values(experiences)" :key="idx">
+                <experience :experience_list="experience_list" :jenis="Object.keys(experiences)[selectedExperienceTab]">
+                </experience>
+              </TabPanel>
+            </TabPanels>
+            <!-- <a href="#"
+              class="float-right inline-flex items-center justify-center py-2 px-4 text-base font-medium text-white rounded-lg bg-primary hover:text-gray-900 hover:bg-secondary">
+              <span class="w-full">Explore more experiences</span>
+              <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9" />
+              </svg>
+            </a> -->
           </div>
-          <a href="#"
-            class="float-right inline-flex items-center justify-center py-2 px-4 text-base font-medium text-white rounded-lg bg-primary hover:text-gray-900 hover:bg-secondary">
-            <span class="w-full">Explore more experiences</span>
-            <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-              viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9" />
-            </svg>
-          </a>
         </div>
-      </div>
+      </TabGroup>
 
 
 
@@ -527,7 +629,7 @@ export default {
               enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
               leave-to="opacity-0 scale-95">
               <DialogPanel
-                class="w-full max-w-6xl transform overflow-hidden bg-white p-3 border-sketched text-left align-middle shadow-xl transition-all">
+                class="w-full max-w-3xl transform overflow-hidden bg-white p-3 border-sketched text-left align-middle shadow-xl transition-all">
 
                 <div class="my-2">
                   <div class="w-full mb-2">
@@ -578,7 +680,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .carousel__item {
   background-repeat: no-repeat;
   background-size: cover;
@@ -594,5 +696,44 @@ export default {
   box-sizing: content-box;
   border: 5px solid white;
 }
+.fade-enter-active,
+.fade-leave-active {
+  & > * {
+    transition-duration: 200ms;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(.6,.15,.35,.8);
+  }
+  
+}
 
+$delay: 100ms;
+$delayStep: 100ms;
+
+.fade-enter,
+.fade-leave-to {
+  & > * {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+.fade-enter-active {
+  & > * {
+    &:nth-child(2) {
+      transition-delay: $delay;
+    }
+    &:nth-child(3) {
+      transition-delay: $delay + $delayStep;
+    }
+  }
+}
+.fade-leave-active {
+  & > * {
+    &:nth-child(1) {
+      transition-delay: $delay + $delayStep;
+    }
+    &:nth-child(2) {
+      transition-delay: $delay;
+    }
+  }
+}
 </style>
