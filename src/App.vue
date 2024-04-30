@@ -1,5 +1,5 @@
 <script>
-import { ref, defineExpose, onMounted } from 'vue'
+import { ref, defineExpose, onMounted, computed } from 'vue'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 import Experience from './components/Experience.vue'
@@ -44,7 +44,17 @@ export default {
       });
     }
     const portoParent = ref(null);
+    const navbar = ref(null);
+        
+    const showMobileMenu = computed(() => {
+      console.log(navbar.value?.showMobileMenu)
+      return navbar.value?.showMobileMenu;
+      // if child count update it will return the latest count;
+    });
+
+
     onMounted(() => {
+      showMobileMenu.value = navbar.value.showMobileMenu;
       window.addEventListener('scroll', onScroll);
       window.addEventListener('scroll', () => {
         var scrollToTopButton = document.getElementById('scroll-to-top');
@@ -404,7 +414,9 @@ export default {
       lastScrollPosition,
       onScroll,
       portoParent,
-      scrollToTop
+      scrollToTop,
+      navbar,
+      showMobileMenu
     }
   },
 
@@ -417,50 +429,50 @@ export default {
 <template>
   <div class="h-full" ref="portoParent">
     <header>
-      <Navbar :showNavbar="showNavbar"></Navbar>
-      <div class="px-6 pb-14 lg:pt-[120px] lg:px-8">
-        <div class="flex flex-row justify-between">
-          <div class="flex flex-col justify-end w-1/2 pb-10 mr-10">
-            <div class="w-full transition ease-in-out delay-150 hover:-translate-x-2 duration-500">
+      <Navbar ref="navbar" :showNavbar="showNavbar"></Navbar>
+      <div class="px-10 sm:pb-14 pb-10 sm:pt-[120px] sm:px-8" :class="{'pt-[280px]' : showMobileMenu, 'pt-[80px]' : !showMobileMenu}">
+        <div class="flex sm:flex-row flex-col sm:justify-between justify-start">
+          <div class="flex flex-col sm:items-start items-center w-full justify-end sm:w-1/2 pb-10 mr-10">
+            <div class="sm:mt-0 mt-5 sm:order-first order-last w-full transition ease-in-out delay-150 hover:-translate-x-2 duration-500">
               <h6 class="font-satisfy text-2xl mb-3">🎼🎵 Play my favorite songs 🎤🎧</h6>
               <iframe style="border-radius:12px"
-                src="https://open.spotify.com/embed/playlist/0kf3iuCnrzAeQand0fMVvG?utm_source=generator" width="80%"
+                src="https://open.spotify.com/embed/playlist/0kf3iuCnrzAeQand0fMVvG?utm_source=generator" width="100%"
                 height="152" frameBorder="0" allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>
             </div>
-            <div class="mt-10">
+            <div class="sm:mt-10 mt-5">
               <h1 class="font-satisfy text-primary text-3xl">What can I do for you?</h1>
-              <div class="flex flex-col my-5 max-w-2xl mr-2">
+              <div class="flex flex-col my-5 sm:max-w-2xl sm:mr-2">
                 <div class="flex my-3 flex-row items-center">
                   <img class="mr-4" style="width : 80px"
                     :src="getImageUrl('../assets/images/oc-project-development.png')">
-                  <span class="font-comic text-xl">I’m good with Back-end Development. Handling APIs, Databases and 3rd
+                  <span class="font-comic sm:text-xl text-lg text-justify">I’m good with Back-end Development. Handling APIs, Databases and 3rd
                     parties.</span>
                 </div>
                 <div class="flex my-3 flex-row items-center">
                   <img class="mr-4" style="width : 80px" :src="getImageUrl('../assets/images/oc-target.png')">
-                  <span class="font-comic text-xl">Experienced with Front-end Development. Handling layout, components,
+                  <span class="font-comic sm:text-xl text-lg text-justify">Experienced with Front-end Development. Handling layout, components,
                     styling and client side logics.</span>
                 </div>
                 <div class="flex my-3 flex-row items-center">
                   <img class="mr-4" style="width : 80px" :src="getImageUrl('../assets/images/ec-notification.png')">
-                  <span class="font-comic text-xl">Developed some mobile apps with Flutter. Good at working with
+                  <span class="font-comic sm:text-xl text-lg text-justify">Developed some mobile apps with Flutter. Good at working with
                     Notifications, Deep link, Providers and Interfaces</span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="w-4/6">
+          <div class="sm:w-4/6 w-full sm:order-last order-first">
             <div class="flex flex-row">
-              <img class="w-4/12" :src="getImageUrl('../assets/images/me.png')">
-              <div class="text-3xl my-20">
+              <img class="hidden sm:block w-4/12" :src="getImageUrl('../assets/images/me.png')">
+              <div class="sm:text-3xl text-xl sm:my-20 my-10">
                 <div
                   class="w-full mb-10 py-6 px-6 border-sketched shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400">
-                  <div class="flex flex-row items-center">
+                  <div class="flex sm:flex-row flex-col items-center">
                     <img class="w-24 h-24 mr-3 rounded-full shadow-lg" :src="getImageUrl('../assets/images/anna.jpg')"
                       alt="Bonnie image" />
-                    <div class="flex flex-col justify-center">
+                    <div class="flex flex-col items-center sm:items-start justify-center sm:mt-0 mt-5">
                       <h5 class="mb-1 text-2xl text-primary font-comic">Diana Fitri 🎸🍔</h5>
                       <span class="text-lg text-dark font-comic">Fullstack Developer + Software Development Enthusiast.
                         I love coding, music and foods.</span>
@@ -472,23 +484,22 @@ export default {
                   class="font-satisfy font-bold text-4xl ml-2">Diana Fitri</span></div> -->
                 <div><span class="font-comic">I’m a versatile developer;<br>I code with many languages;</span></div>
                 <div>
-                  <div class="grid grid-cols-5 gap-2 my-5">
+                  <div class="grid sm:grid-cols-5 grid-cols-2 gap-2 my-5">
                     <div class="badge-primary text-sm text-center" v-for="(skill, index) in skills">{{ skill }}</div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
-        <hr class="w-3/4 ml-10 h-1 bg-primary border-0 dark:bg-primary">
+        <hr class="sm:w-3/4 sm:ml-10 h-1 bg-primary border-0 dark:bg-primary">
       </div>
     </header>
     <!-- projects section -->
     <div id="projects">
-      <div class="mx-20 my-14">
-        <div class="flex flex-col items-end">
-          <h1 class="font-comic text-primary text-5xl text-center mb-10">Projects</h1>
+      <div class="sm:mx-20 mx-10 sm:my-14 my-6">
+        <div class="flex flex-col sm:items-end items-center">
+          <h1 class="font-comic text-primary sm:text-5xl text-3xl text-center mb-10">Projects</h1>
           <!-- <img class="w-1/4" :src="getImageUrl('../assets/images/ec-buy-domain.png')"> -->
         </div>
         <TabGroup :selectedIndex="selectedProjectIndex" @change="changeSelectedProject">
@@ -512,22 +523,22 @@ export default {
               <TransitionRoot appear :show="selected" enter="duration-500 ease-out" enter-from="opacity-0 scale-95"
                 enter-to="opacity-100 scale-100" leave="duration-300 ease-in" leave-from="opacity-100 scale-100"
                 leave-to="opacity-0 scale-95">
-                <div class="mt-10 mb-2 grid grid-cols-2 gap-3">
-                  <div v-for="(project, index) in project_list" @click="setIsOpen(project)"
-                    class="font-comic flex flex-row justify-start mb-4">
-                    <div class="w-1/3">
-                      <img class="border-4 border-primary w-full h-full" :src="project.img"
+                <div class="mt-10 mb-2 grid sm:grid-cols-2 gap-3">
+                  <div v-for="(project, index) in project_list"
+                    class="font-comic flex sm:flex-row flex-col justify-start mb-4">
+                    <div class="sm:w-1/3 w-full">
+                      <img class="border-4 border-primary w-full" :src="project.img"
                         alt="Sunset in the mountains">
                     </div>
 
-                    <div class="px-4 py-2 flex flex-col justify-center">
+                    <div class="sm:px-4 py-2 flex flex-col sm:justify-center">
                       <div class="font-boldest text-xl text-primary">{{ project.title }}</div>
                       <p class="text-black my-2 text-sm">
                         {{ project.desc }}
                       </p>
                       <div class="mt-2">
-                        <button class="btn-sketched-dark mr-2">▶️ Demo</button>
-                        <button class="btn-sketched">More 🔍</button>
+                        <button class="btn-sketched-dark mr-2" @click="setIsOpen(project)">▶️ Demo</button>
+                        <button class="btn-sketched" @click="setIsOpen(project)">More 🔍</button>
                       </div>
                     </div>
 
@@ -550,8 +561,8 @@ export default {
       </div>
     </div>
     <!-- experiences section -->
-    <div class="px-40 py-14" id="experiences">
-      <h1 class="font-comic text-primary text-5xl text-center mb-10">Experiences</h1>
+    <div class="sm:px-40 px-10 sm:py-14 py-6" id="experiences">
+      <h1 class="font-comic text-primary sm:text-5xl text-3xl text-center mb-10">Experiences</h1>
       <TabGroup :selectedIndex="selectedExperienceTab" @change="changeselectedExperienceTab">
         <div class="md:flex">
           <!-- <ul
@@ -681,7 +692,7 @@ export default {
                 class="w-full max-w-3xl transform overflow-hidden bg-white p-3 border-sketched text-left align-middle shadow-xl transition-all">
 
                 <div class="my-2">
-                  <div class="w-full mb-2">
+                  <!-- <div class="w-full mb-2">
                     <Carousel>
                       <Slide v-for="slide in 3" :key="slide">
                         <div class="carousel__item"
@@ -693,16 +704,16 @@ export default {
                         <Pagination />
                       </template>
                     </Carousel>
-                  </div>
+                  </div> -->
 
                   <div class="px-4">
-                    <div class="py-2">
-                      <span class="label-secondary mr-2 mb-2" v-for="(tag, index) in currProject.tags">{{ tag.title
-                        }}</span>
-                    </div>
+                   
                     <h3 as="h3" class="text-lg font-medium leading-6 mb-3 text-gray-900">
                       {{ currProject.title }}
                     </h3>
+                    <div class="py-2">
+                      <span class="label-secondary mr-2 mb-2" v-for="(tag, index) in currProject.tags">{{ tag.title}}</span>
+                    </div>
                     <div class="w-3/4">
                       <p class="text-md text-gray-500 ">
                         Your payment has been successfully submitted. We’ve sent you an email with all of the details of
